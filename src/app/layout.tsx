@@ -23,8 +23,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} flex-col gap-8`}>
+
+      <body>
       <TopNav />
-      <body>{children}</body>
+      {children}</body>
     </html>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {db} from "~/server/db";
 
 const images = [
     'https://cdn.pixabay.com/photo/2025/03/06/09/08/woman-9450191_1280.jpg',
@@ -11,13 +12,20 @@ const images = [
     'https://cdn.pixabay.com/photo/2025/02/22/16/06/mountain-9424297_1280.jpg',
     ].map((url,index)=>({id:index+1,url}))
 
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await db.query.posts.findMany()
+
   return (
     <main>
       <div className="flex flex-wrap gap-4">
-        {[...images,...images].map(({ url, id }) => (
-          <div key={id} className="w-48">
-              <img src={url}  />
+        {posts.map((post) => (
+          <div key={post.id} className="w-48">
+            {post.name}
+          </div>
+        ))}
+        {[...images, ...images].map(({ url, id }, index) => (
+          <div key={index + "-" + id} className="w-48">
+            <img src={url} />
           </div>
         ))}
       </div>
