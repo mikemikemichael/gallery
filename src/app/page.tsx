@@ -1,6 +1,8 @@
 import Link from "next/link";
 import {db} from "~/server/db";
 
+export const dynamic = 'force-dynamic';
+
 const images = [
     'https://cdn.pixabay.com/photo/2025/03/06/09/08/woman-9450191_1280.jpg',
     'https://cdn.pixabay.com/photo/2022/10/11/16/43/french-bulldog-7514725_1280.jpg',
