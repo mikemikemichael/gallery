@@ -11,6 +11,7 @@ import {
     SignedOut,
     UserButton,
 } from '@clerk/nextjs'
+import {Toaster} from "~/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -50,6 +51,7 @@ export default function RootLayout({
           {children}
           {modal}
           <div id={"modal-root"}></div>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

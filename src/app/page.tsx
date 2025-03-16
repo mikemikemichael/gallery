@@ -3,6 +3,7 @@ import {db} from "~/server/db";
 import {SignedIn, SignedOut} from "@clerk/nextjs";
 import {getImages} from "~/server/querys";
 import Image from "next/image";
+import {MakeToastButton} from "~/app/_components/botton";
 
 export const dynamic = 'force-dynamic';
 
@@ -17,6 +18,7 @@ async function Images() {
                     </Link>
                 </div>
         ))}
+            <MakeToastButton />
         </div>
     );
 }
@@ -34,7 +36,6 @@ export default async function HomePage() {
           <SignedIn>
               <Images/>
           </SignedIn>
-
       </div>
     </main>
   );
